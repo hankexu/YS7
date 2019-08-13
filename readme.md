@@ -18,7 +18,7 @@ $ npm i ys7 --save
            expireTime: 1566186144634
         }
     */
-    const token = YS7.getToken(AppKey, AppSecret); 
+    const token = await YS7.getToken(AppKey, AppSecret); 
     const ys = YS7.init(token.accessToken);
     
 ```

@@ -14,21 +14,15 @@ class Ys7 {
         this.accessToken = token;
     }
 
-    static getToken(ak, sk) {
-        return {
-            accessToken: 'at.6rqp8nh5a8xzl9ah9kcsu8teca8r9gzy-2h67wrzfcq-12zjusw-gbnaksvv8',
-            expireTime: 1566186144634
-        };
-        axios.post(API.TOKEN, qs.stringify({
+    static async getToken(ak, sk) {
+        const response = await axios.post(API.TOKEN, qs.stringify({
             appKey: ak,
             appSecret: sk
-        }),).then(res => {
-            if (res.data.code !== 200) {
-                throw res.data.msg;
-            } else {
-                return res.data;
-            }
-        });
+            }));
+        if (response.data.code != 200) {
+            throw  Error(response.data.msg);
+        }
+        return response.data.data;
     }
 
     async deviceList(pageStart = 0, pageSize = 10) {
@@ -40,7 +34,7 @@ class Ys7 {
         if (response.data.code != 200) {
             throw Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async _listRequester(pageStart = 0, pageSize = 10, API) {
@@ -53,7 +47,7 @@ class Ys7 {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async addDevice(deviceSerial, validateCode) {
@@ -66,7 +60,7 @@ class Ys7 {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async removeDevice(deviceSerial) {
@@ -78,7 +72,7 @@ class Ys7 {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async liveList(pageStart = 0, pageSize = 10) {
@@ -99,7 +93,7 @@ class Ys7 {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     getCamera(deviceSerial) {

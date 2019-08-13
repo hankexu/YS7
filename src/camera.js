@@ -15,7 +15,7 @@ module.exports = class Camera {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async defence(isDefence) {
@@ -27,7 +27,7 @@ module.exports = class Camera {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async getLiveAddress(expireTime = 62208000, channelNo = 1) {
@@ -40,7 +40,7 @@ module.exports = class Camera {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async getDefenceTime() {
@@ -51,7 +51,7 @@ module.exports = class Camera {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async setDefenceTime(startTime, stopTime, period, enable, channelNo) {
@@ -67,7 +67,7 @@ module.exports = class Camera {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async alarmList(pageStart = 0, pageSize = 10, startTime, endTime, alarmType, status) {
@@ -85,7 +85,7 @@ module.exports = class Camera {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async startCtrl(direction, speed = 1, channelNo = 1) {
@@ -100,7 +100,7 @@ module.exports = class Camera {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async stopCtrl(direction, channelNo = 1) {
@@ -114,7 +114,7 @@ module.exports = class Camera {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
     async capacity() {
@@ -126,7 +126,7 @@ module.exports = class Camera {
         if (response.data.code != 200) {
             throw  Error(response.data.msg);
         }
-        return response.data;
+        return response.data.data;
     }
 
 
