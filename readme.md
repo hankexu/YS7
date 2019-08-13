@@ -54,6 +54,22 @@ $ npm i ys7 --save
     // 具有防护能力设备布撤防状态：0-睡眠，8-在家，16-外出，普通IPC设备布撤防状态：`0-撤防，1-布防
     const result = await camera.defence(isDefence);
 ```
+云台控制
+```js
+    // 开始控制
+    // direction 操作命令：0-上，1-下，2-左，3-右，4-左上，5-左下，6-右上，7-右下，8-放大，9-缩小，10-近焦距，11-远焦距
+    // speed 云台速度：0-慢，1-适中，2-快  // 默认1
+    // channelNo 通道号 默认1
+    await camera.startCtrl(direction, speed, channelNo);
+    
+```
+
+```js
+    // 停止控制
+    // direction 操作命令：0-上，1-下，2-左，3-右，4-左上，5-左下，6-右上，7-右下，8-放大，9-缩小，10-近焦距，11-远焦距
+    // channelNo 通道号 默认1 
+    await camera.stopCtrl(direction, channelNo);
+```
 
 
 
