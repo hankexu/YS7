@@ -129,6 +129,18 @@ module.exports = class Camera {
         return response.data.data;
     }
 
+    async capture(channelNo=1) {
+        const response = await axios.post(API.DEVICE_MANAGER.CAPTURE, qs.stringify({
+            deviceSerial: this.deviceSerial,
+            accessToken: this.accessToken,
+            channelNo
+        }));
+        if (response.data.code != 200) {
+            throw  Error(response.data.msg);
+        }
+        return response.data.data;
+    }
+
 
 };
 

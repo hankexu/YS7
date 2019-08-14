@@ -99,6 +99,19 @@ class Ys7 {
     getCamera(deviceSerial) {
         return new Camera(deviceSerial, this.accessToken);
     }
+
+    async bodyCheck(dataType, image, operation='number'){
+        const response = await axios.post(API.AI.BODY, qs.stringify({
+            accessToken: this.accessToken,
+            dataType,
+            image,
+            operation
+        }));
+        if (response.data.code != 200) {
+            throw  Error(response.data.msg);
+        }
+        return response.data.data;
+    }
 }
 
 module.exports = Ys7;

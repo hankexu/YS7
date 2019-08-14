@@ -43,6 +43,9 @@ module.exports = {
     ALARM:{
         ALL: 'https://open.ys7.com/api/lapp/alarm/list', //  获取所有告警信息列表
         DEVICE: 'https://open.ys7.com/api/lapp/alarm/device/list',  // 按照设备获取告警消息列表
+    },
+    AI:{
+        BODY: 'https://open.ys7.com/api/lapp/intelligence/human/analysis/detect', // 人体人形检测
     }
 };
 
