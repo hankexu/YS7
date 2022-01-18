@@ -77,7 +77,7 @@ AI
     await camera.stopCtrl(direction, channelNo);
 ```
 
-
+> 如有你需要使用但本库尚未支持的API,可以提交issues
 
 
 
